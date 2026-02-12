@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>Haushaltsgegenstände — Deutsch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Верхняя панель навигации -->
+        <header class="main-header">
+            <div class="logo">
+                <span class="logo-icon">🏠</span>
+                <span>Deutsch — Zuhause</span>
+            </div>
+            <div class="header-controls">
+                <button id="themeToggle" class="icon-btn" aria-label="Сменить тему">🌙</button>
+                <button id="backToDictBtn" class="icon-btn" title="Wörterbuch">📚</button>
+            </div>
+        </header>
+
+        <!-- Основное переключаемое содержимое -->
+        <main id="appContent"></main>
+    </div>
+
+    <!-- Шаблоны -->
+    <template id="dict-screen-template">
+        <section class="screen dict-screen">
+            <div class="search-sort-bar">
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Suche auf Deutsch oder Russisch...">
+                </div>
+                <div class="sort-buttons">
+                    <button id="sortAzBtn" class="sort-btn">A–Z</button>
+                    <button id="sortRandomBtn" class="sort-btn">🎲</button>
+                </div>
+            </div>
+            <div class="dict-header">
+                <h2>Wortschatz (36+ Wörter)</h2>
+                <button id="startQuizFromDict" class="btn-primary">🧠 Quiz</button>
+            </div>
+            <div id="vocabGrid" class="vocab-grid"></div>
+        </section>
+    </template>
+
+    <template id="quiz-screen-template">
+        <section class="screen quiz-screen">
+            <div class="quiz-header">
+                <h2 id="quizModeTitle">Quiz: Russisch → Deutsch</h2>
+                <button id="backToDictFromQuiz" class="btn-outline">← Wörterbuch</button>
+            </div>
+            
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar" style="width: 0%;"></div>
+            </div>
+            
+            <div class="score-counter" id="scoreCounter">Richtig: 0 / 0</div>
+
+            <div class="quiz-card" id="quizCard">
+                <div class="question-word" id="questionWord">laden...</div>
+                <div class="options-container" id="optionsContainer"></div>
+                <div class="quiz-footer">
+                    <button id="nextBtn" class="btn-primary" disabled>Weiter</button>
+                </div>
+            </div>
+
+            <div id="resultScreen" class="result-screen hidden">
+                <div class="result-content">
+                    <h3>🎉 Ergebnis</h3>
+                    <div class="result-stats" id="resultStats"></div>
+                    <div class="result-actions">
+                        <button id="retryMistakesBtn" class="btn-secondary">Fehler wiederholen</button>
+                        <button id="playAgainBtn" class="btn-primary">Nochmal spielen</button>
+                        <button id="backToDictFromResult" class="btn-outline">Wörterbuch</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>
